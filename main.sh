@@ -3,7 +3,7 @@
 # Add checking for number of args, especially in strlen
 
 if [[ "$1" != "calc" && "$1" != "search" && "$1" != "reverse" && "$1" != "strlen" && "$1" != "log" && "$1" != "exit" && "$1" != "help" && "$1" != "interactive" ]]; then
-	echo Wrong argument. Type ./main help to learn usage
+	echo Wrong argument. Type ./main.sh help to learn usage
 	exit 3
 else
 
