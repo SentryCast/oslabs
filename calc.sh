@@ -1,7 +1,7 @@
 #!/bin/bash
 
 grep_is_number() {
-grep -E -q "^[\-\+]?[0-9]+$"
+grep -E -q "^[-+]?[0-9]+$"
 }
 
 grep_isnotnull_number() {
