@@ -11,10 +11,10 @@
 		fi
 	else
 		if(touch $2); then
-			if [[ -w $2 && -r $2 ]]; then
+			if [[ -w $2 && -r $2 && -f $2 ]]; then
 				rev $1 | tac > $2
 			else
-				echo Error occurred: outputfile has no permission to write or read.
+				echo Error occurred: outputfile has no permission to write or read or can not be created.
 				exit 1
 			fi
 		else
