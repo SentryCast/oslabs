@@ -12,7 +12,7 @@ if [[ -f "/var/log/anaconda/X.log" && -r "/var/log/anaconda/X.log" ]]; then
 
 	while IFS= read -r line
 	do
-		if [[ "$line" == *"(II)"* && "$line" != *"(WW) warning, (EE) error, (NI) not implemented, (??) unknown."* ]]; then
+		if [[ "$line" == *"(II)"* && "$line" != *"(++) from command line, (!!) notice, (II) informational,"* ]]; then
 			echo -e ${line//"(II)"/"\e[1;36mInformation:\e[0m"}
 		fi
 	done < "$inputfile"
