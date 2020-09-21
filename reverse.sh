@@ -11,7 +11,7 @@
 			mv TMP "$2"
 		fi
 	else
-		if [ -w . ]; then
+		if [[ $2 != *"/"* ]]; then
 		
 		if(touch $2); then
 			if [[ -w $2 && -r $2 && -f $2 ]]; then
