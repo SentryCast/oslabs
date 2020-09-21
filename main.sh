@@ -31,7 +31,8 @@ reverse)
 	fi
 ;;
 strlen) if [ $# == 2 ]; then
-		./strlen.sh $2
+		shift
+		./strlen.sh "$@"
 	else
 		echo Error occurred: expected 2 arguments.
 		exit 1

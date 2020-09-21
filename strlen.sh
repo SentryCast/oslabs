@@ -1,3 +1,4 @@
 #!/bin/bash
 
-echo Length of the first argument: ${#1}
+str="$@"
+echo "${#str}"
