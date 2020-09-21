@@ -10,7 +10,12 @@
 			mv TMP "$2"
 		fi
 	else
-		echo Error occured: datafile can not be opened or does not exist.
-		echo Usage: ./main reverse datafile outputfile
-		exit 1
+		if(touch $2); then
+			rev $1 | tac > $2
+		else
+		
+			echo Error occured: datafile can not be opened or does not exist.
+			echo Usage: ./main reverse datafile outputfile
+			exit 1
+		fi
 	fi
