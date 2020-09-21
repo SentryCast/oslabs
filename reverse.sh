@@ -2,7 +2,7 @@
 
 	if [[ -f $1 && -r $1 ]]; then
 
-	if [[ -f $2 && -r $2 && -w $2 && $2 != *"/"*  ]]; then
+	if [[ -f $2 && -r $2 && -w $2 ]]; then
 		if [ "$1" != "$2" ]; then
 			rev $1 | tac > $2
 		else
@@ -28,7 +28,14 @@
 		fi
 
 		else
-		echo Error occurred: cant create file.
+		if ! touch "$2" 2>/dev/null
+		then
+			echo Error: no permission to create the file
+			exit 2
+		else
+			touch "$2"
+			rev $1 | tac >$2
+		fi
 		exit 1
 		fi
 	fi
