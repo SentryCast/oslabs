@@ -1,5 +1,6 @@
 #!/bin/bash
 
+	if [[ -f $1 && -r $1 ]]; then
 
 	if [[ -f $2 && -r $2 && -w $2 ]]; then
 		if [ "$1" != "$2" ]; then
@@ -10,6 +11,8 @@
 			mv TMP "$2"
 		fi
 	else
+		if [ -w . ]; then
+		
 		if(touch $2); then
 			if [[ -w $2 && -r $2 && -f $2 ]]; then
 				rev $1 | tac > $2
@@ -23,4 +26,14 @@
 			echo Usage: ./main reverse datafile outputfile
 			exit 1
 		fi
+
+		else
+		echo Error occurred: cant create file
+		exit 1
+		fi
 	fi
+	else
+	echo Error occurred: cant open datafile
+	exit 1
+	fi
+
