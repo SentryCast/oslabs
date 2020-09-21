@@ -51,7 +51,7 @@ exit)
 		./exit.sh $2
 	else
 		echo Error occurred: expected 2 arguments.
-		exit 1
+		exit 0
 	fi
 ;;
 help)

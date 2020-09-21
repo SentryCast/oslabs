@@ -5,7 +5,7 @@ grep -E -q "^-?[0-9]+$"
 }
 
 grep_isnotnull_number() {
-grep -E -q "^-?[1-9][0-9]*$"
+grep -E -q "^[\-]?[1-9][0-9]*$"
 }
 
 if [ "$1" = "sum" ]
