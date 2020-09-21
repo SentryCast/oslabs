@@ -11,7 +11,12 @@
 		fi
 	else
 		if(touch $2); then
-			rev $1 | tac > $2
+			if [[ -w $2 && -r $2 ]]; then
+				rev $1 | tac > $2
+			else
+				echo Error occurred: outputfile has no permission to write or read.
+				exit 1
+			fi
 		else
 		
 			echo Error occured: datafile or outputfile can not be opened or does not exist.
